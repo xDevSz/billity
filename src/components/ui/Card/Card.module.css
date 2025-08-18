@@ -1,0 +1,28 @@
+/* src/components/ui/Card/Card.module.css */
+
+.card {
+  background-color: #2a2a2a;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #3a3a3a;
+  
+  /* --- AQUI ESTÁ A MÁGICA DA RESPONSIVIDADE --- */
+  
+  /* Por padrão (Mobile-First), o card ocupa 100% da largura disponível */
+  width: 100%;
+
+  /* Mas ele nunca poderá ultrapassar 450px de largura */
+  max-width: 450px;
+  
+  box-sizing: border-box;
+}
+
+/* --- Media Query para telas maiores (tablets e desktops) --- */
+/* Quando a tela tiver no mínimo 768px de largura, as regras abaixo serão aplicadas */
+@media (min-width: 768px) {
+  .card {
+    /* Em telas maiores, podemos aumentar um pouco o padding interno */
+    padding: 3rem;
+  }
+}

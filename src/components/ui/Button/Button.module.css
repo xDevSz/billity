@@ -1,0 +1,27 @@
+/* src/components/ui/Button/Button.module.css */
+
+.button {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #FFD700; /* Cor de destaque amarela */
+  color: #121212; /* Texto escuro para contraste */
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+  background-color: #ffc107; /* Um tom de amarelo um pouco mais escuro */
+  transform: translateY(-2px);
+}
+
+/* Estilo para quando o botão estiver desabilitado */
+.button:disabled {
+  background-color: #5a5a5a;
+  color: #9a9a9a;
+  cursor: not-allowed;
+  transform: none;
+}

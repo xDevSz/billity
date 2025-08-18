@@ -1,0 +1,63 @@
+/* src/pages/Login/Login.module.css */
+
+.loginContainer {
+  /* Usa Flexbox para controlar o alinhamento dos filhos */
+  display: flex;
+
+  /* Centraliza o filho (o Card) horizontalmente */
+  justify-content: center;
+
+  /* Centraliza o filho (o Card) verticalmente */
+  align-items: center;
+
+  /* Garante que o container ocupe 100% da altura da tela */
+  min-height: 100vh;
+
+  /* Adiciona um espaçamento nas laterais, útil para telas de tablet/desktop */
+  padding: 2rem;
+}
+
+.loginHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.loginHeader h2 {
+  color: #FFD700;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footerLinks {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footerLinks a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+}
+
+.footerLinks p {
+  margin-top: 1rem;
+}
+
+.errorMessage {
+  color: #ff6b6b;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}

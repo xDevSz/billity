@@ -1,0 +1,19 @@
+/* src/index.css */
+
+/* Remove margens e paddings padrão de todos os elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Faz o cálculo de tamanho incluir padding e borda */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1a1a1a; /* Define o fundo escuro para toda a aplicação */
+}
+
+h1, h2, h3, h4, p, a, label {
+  color: #EAEAEA; /* Cor de texto padrão para facilitar a leitura */
+}
