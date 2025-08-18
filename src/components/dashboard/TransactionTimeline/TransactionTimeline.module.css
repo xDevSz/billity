@@ -1,0 +1,20 @@
+/* src/components/dashboard/TransactionTimeline/TransactionTimeline.module.css */
+.timeline {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.timeline h3 { color: #333; margin-bottom: 1rem; }
+.timeline ul { list-style: none; }
+.timeline li { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+.timeline li:last-child { border-bottom: none; }
+.iconRecebido, .iconEmprestado { display: flex; font-size: 1.5rem; padding: 8px; border-radius: 50%; margin-right: 1rem; }
+.iconRecebido { background-color: #d4edda; color: #155724; }
+.iconEmprestado { background-color: #f8d7da; color: #721c24; }
+.details { flex-grow: 1; display: flex; flex-direction: column; }
+.details span { font-weight: 500; color: #333; }
+.details small { color: #6c757d; }
+.amountRecebido, .amountEmprestado { font-weight: bold; }
+.amountRecebido { color: #155724; }
+.amountEmprestado { color: #721c24; }

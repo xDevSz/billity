@@ -2,27 +2,18 @@
 
 .card {
   background-color: #2a2a2a;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  /* AUMENTAMOS MUITO O PADDING INTERNO */
+  padding: 3rem 3.5rem; 
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   border: 1px solid #3a3a3a;
-  
-  /* --- AQUI ESTÁ A MÁGICA DA RESPONSIVIDADE --- */
-  
-  /* Por padrão (Mobile-First), o card ocupa 100% da largura disponível */
   width: 100%;
-
-  /* Mas ele nunca poderá ultrapassar 450px de largura */
-  max-width: 450px;
-  
   box-sizing: border-box;
 }
 
-/* --- Media Query para telas maiores (tablets e desktops) --- */
-/* Quando a tela tiver no mínimo 768px de largura, as regras abaixo serão aplicadas */
-@media (min-width: 768px) {
+/* Em telas pequenas, diminuímos um pouco o padding para não comer tanto espaço */
+@media (max-width: 600px) {
   .card {
-    /* Em telas maiores, podemos aumentar um pouco o padding interno */
-    padding: 3rem;
+    padding: 2.5rem 1.5rem;
   }
 }

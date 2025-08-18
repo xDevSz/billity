@@ -1,0 +1,71 @@
+/* src/components/layout/Sidebar/Sidebar.module.css */
+
+.sidebar {
+  background-color: #1a1a1a; /* Cinza bem escuro, quase preto */
+  color: #e0e0e0; /* Texto claro */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  position: fixed;
+  width: 250px;
+  border-right: 1px solid #333; /* Uma borda sutil para separar */
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FFD700; /* Amarelo destaque */
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.nav li {
+  margin-bottom: 1rem;
+}
+
+.nav a {
+  color: #e0e0e0; /* Cor padrão do link */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav a:hover {
+  background-color: #2a2a2a; /* Um cinza um pouco mais claro no hover */
+  color: #ffffff;
+}
+
+/* Estilo para o link da página ativa! */
+.nav a.active {
+  background-color: #FFD700; /* Fundo amarelo */
+  color: #1a1a1a; /* Texto escuro para contraste */
+  font-weight: bold;
+}
+
+.nav a svg {
+  margin-right: 12px;
+  font-size: 1.5rem;
+}
+
+
+.disabledLink {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: #6a6a6a; /* Cor cinza para indicar inatividade */
+  cursor: not-allowed; /* Cursor de "proibido" */
+  opacity: 0.6;
+}
+.disabledLink svg {
+  margin-right: 12px;
+  font-size: 1.5rem;
+}

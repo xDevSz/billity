@@ -1,0 +1,70 @@
+/* src/styles/AuthLayout.module.css */
+
+.loginContainer {
+  /* Usa Flexbox para controlar o alinhamento */
+  display: flex;
+  /* Centraliza o card na horizontal */
+  justify-content: center;
+  /* Centraliza o card na vertical */
+  align-items: center;
+  /* Garante que o container ocupe 100% da altura da tela */
+  min-height: 100vh;
+  /* Adiciona um espaçamento geral, bom para telas maiores */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.loginHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.loginHeader h2 {
+  color: #FFD700;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.loginHeader p {
+  color: #EAEAEA;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footerLinks {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footerLinks a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+}
+
+.footerLinks p {
+  margin-top: 1rem;
+}
+
+.errorMessage {
+  color: #ff6b6b;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Adicione esta classe no final do arquivo */
+.formWrapper {
+  width: 100%;
+  max-width: 480px; /* Este é o tamanho menor que você queria */
+}

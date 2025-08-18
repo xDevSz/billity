@@ -8,26 +8,27 @@
 
 .label {
   color: #EAEAEA;
-  font-size: 0.9rem;
-  margin-bottom: 8px;
+  font-size: 1rem; /* Aumenta a fonte do label */
+  margin-bottom: 10px; /* Mais espaço */
 }
 
 .input {
   background-color: #1a1a1a;
-  border: 1px solid #4a4a4a;
+  border: 1px solid #555; /* Borda mais visível */
   color: #FFFFFF;
-  padding: 12px 15px;
+  /* AUMENTAMOS O PADDING E A FONTE */
+  padding: 16px 18px; 
   border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
+  font-size: 1.1rem; 
+  transition: all 0.3s ease;
 }
 
 .input::placeholder {
   color: #6c757d;
 }
 
-/* Efeito de foco: a borda fica amarela */
 .input:focus {
   outline: none;
   border-color: #FFD700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2); /* Efeito de brilho ao focar */
 }

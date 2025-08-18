@@ -1,0 +1,33 @@
+/* src/components/dashboard/KpiCard/KpiCard.module.css */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.iconWrapper {
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: #004d40; /* Verde escuro */
+}
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 4px;
+}
+.value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #212529;
+}

@@ -1,0 +1,35 @@
+/* src/components/layout/Header/Header.module.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.title {
+  font-size: 2rem;
+  color: #333; /* Cor para o novo fundo claro */
+}
+
+.userMenu a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  gap: 0.75rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.userMenu a:hover {
+  background-color: #f0f0f0;
+}
+
+.userMenu svg {
+  font-size: 2rem;
+}
