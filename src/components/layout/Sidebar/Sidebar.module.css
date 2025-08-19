@@ -1,35 +1,53 @@
 /* src/components/layout/Sidebar/Sidebar.module.css */
 
 .sidebar {
-  background-color: #1a1a1a; /* Cinza bem escuro, quase preto */
-  color: #e0e0e0; /* Texto claro */
+  background-color: #1a1a1a;
+  color: #e0e0e0;
   height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 1.5rem 1rem;
   position: fixed;
   width: 250px;
-  border-right: 1px solid #333; /* Uma borda sutil para separar */
+  border-right: 1px solid #333;
 }
 
 .logo {
   font-size: 2rem;
   font-weight: bold;
-  color: #FFD700; /* Amarelo destaque */
-  text-align: center;
+  color: #FFD700;
   margin-bottom: 2.5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
-.nav ul {
+.logo img {
+  height: 40px;
+  width: 40px;
+}
+
+/* Regra que empurra o link de Configurações para baixo */
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; /* Essencial para ocupar o espaço vertical */
+}
+
+.mainNav, .bottomNav {
   list-style: none;
+  padding: 0;
 }
 
-.nav li {
+.mainNav li, .bottomNav li {
   margin-bottom: 1rem;
 }
 
 .nav a {
-  color: #e0e0e0; /* Cor padrão do link */
+  color: #e0e0e0;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -40,14 +58,13 @@
 }
 
 .nav a:hover {
-  background-color: #2a2a2a; /* Um cinza um pouco mais claro no hover */
+  background-color: #2a2a2a;
   color: #ffffff;
 }
 
-/* Estilo para o link da página ativa! */
 .nav a.active {
-  background-color: #FFD700; /* Fundo amarelo */
-  color: #1a1a1a; /* Texto escuro para contraste */
+  background-color: #FFD700;
+  color: #1a1a1a;
   font-weight: bold;
 }
 
@@ -56,13 +73,12 @@
   font-size: 1.5rem;
 }
 
-
 .disabledLink {
   display: flex;
   align-items: center;
   padding: 12px 15px;
-  color: #6a6a6a; /* Cor cinza para indicar inatividade */
-  cursor: not-allowed; /* Cursor de "proibido" */
+  color: #6a6a6a;
+  cursor: not-allowed;
   opacity: 0.6;
 }
 .disabledLink svg {

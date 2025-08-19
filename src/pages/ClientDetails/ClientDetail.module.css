@@ -1,18 +1,86 @@
 /* src/pages/ClientDetail/ClientDetail.module.css */
-.detailContainer { color: #333; }
+
+.detailContainer { color: #333; padding-bottom: 3rem; }
 .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
 .header h1 { color: #333; }
-.contentGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+.backButton {
+  padding: 10px 20px; background-color: #6c757d; color: #fff; border-radius: 8px;
+  text-decoration: none; font-weight: bold; transition: all 0.3s ease;
+  font-size: 0.9rem; display: inline-block; border: none; cursor: pointer;
+}
+.backButton:hover { background-color: #5a6268; transform: translateY(-2px); }
+
+.contentGrid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; }
 .dataSection, .contractsSection { background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-.dataSection h3, .contractsSection h3 { color: #333; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.75rem; }
+.dataSection h3, .contractsSection h3, .historySection h3 { color: #333; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.75rem; }
 .dataSection ul { list-style: none; }
-.dataSection li { padding: 8px 0; border-bottom: 1px solid #f5f5f5; color: #555; }
+.dataSection li { padding: 10px 0; border-bottom: 1px solid #f5f5f5; color: #555; font-size: 1.1rem; }
 .dataSection li:last-child { border-bottom: none; }
 .dataSection strong { margin-right: 8px; color: #111; }
-.contractList { display: flex; flex-direction: column; gap: 1rem; }
-.contractCard { background-color: #f8f9fa; padding: 1rem; border-radius: 8px; border: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
-.contractCard span { font-size: 0.9rem; }
-.status { padding: 4px 12px; border-radius: 16px; font-weight: bold; font-size: 0.8rem; }
-.ativo { background-color: #d4edda; color: #155724; }
-.finalizado { background-color: #e2e3e5; color: #383d41; }
+
+.historySection { grid-column: 1 / -1; background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-top: 2rem; }
+
+/* --- AQUI ESTÃO AS MUDANÇAS --- */
+.uploadSection { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee; }
+
+/* Novo container para alinhar os inputs e o botão */
+.uploadControls {
+  display: flex;
+  align-items: flex-end; /* Alinha pela base */
+  gap: 1rem;
+}
+
+.uploadInputs { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; flex-grow: 1; }
+
+/* Removemos o estilo direto do input[type=file] */
+.uploadSection input[type="file"] { display: none; /* Escondemos o input original feio */ }
+
+/* NOVO: Criamos um "botão falso" que parece com o input */
+.fileInputLabel {
+  display: inline-block;
+  padding: 14px 18px; /* Mesma altura do Input de valor */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  color: #555;
+  font-size: 0.9rem; /* Tamanho menor */
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fileInputLabel:hover { background-color: #e2e6ea; }
+
+.uploadSection button {
+  background-color: #004d40; color: white; border: none;
+  border-radius: 8px; padding: 14px 16px; /* Mesma altura dos inputs */
+  font-weight: bold; cursor: pointer; transition: background-color 0.2s;
+  flex-shrink: 0; /* Impede que o botão encolha */
+}
+.uploadSection button:hover { background-color: #00695c; }
+/* ---------------------------------- */
+
+
+.tableContainer { max-height: 500px; overflow-y: auto; border: 1px solid #eee; border-radius: 8px; }
+.contractsTable { width: 100%; border-collapse: collapse; }
+.contractsTable th, .contractsTable td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
+.contractsTable th { background-color: #f8f9fa; font-size: 0.9rem; font-weight: 600; color: #555; position: sticky; top: 0; }
+.contractsTable td { color: #333; vertical-align: middle; }
+.contractsTable tr:last-child td { border-bottom: none; }
+
+.statusCell { display: flex; align-items: center; gap: 8px; }
+.statusDot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.statusText { font-weight: 500; font-size: 0.9rem; }
+.statusNoPrazo { background-color: #d4edda; color: #155724; padding: 4px 8px; border-radius: 12px; }
+.statusAtrasado { background-color: #f8d7da; color: #721c24; }
+.dotConcluido { background-color: #198754; }
+.dotEmAndamento { background-color: #ffc107; }
+.dotRenegociado { background-color: #dc3545; }
+
+.statusLegend { display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.85rem; color: #555; }
+.legendItem { display: flex; align-items: center; gap: 6px; }
+
 @media (max-width: 992px) { .contentGrid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .uploadControls { flex-direction: column; align-items: stretch; } }

@@ -34,10 +34,23 @@ function Clients() {
       <div className={styles.formSection}>
         <h2>Cadastrar Novo Cliente</h2>
         <form onSubmit={handleAddClient} className={styles.form}>
-          <div className={styles.formRow}><Input label="Nome Completo" id="clientName" type="text" value={name} onChange={e => setName(e.target.value)} required /><Input label="Whatsapp" id="clientWhatsapp" type="tel" value={whatsapp} onChange={e => setWhatsapp(e.target.value)} required /></div>
-          <div className={styles.formRow}><Input label="CPF" id="clientCpf" type="text" required /><Input label="Email" id="clientEmail" type="email" required /></div>
-          <div className={styles.formRow}><Input label="CEP" id="clientCep" type="text" required /><Input label="Ocupação" id="clientOccupation" type="text" required /></div>
-          <div className={styles.formRow}><Input label="Rua / Avenida" id="clientStreet" type="text" required /><Input label="Complemento" id="clientComplement" type="text" /></div>
+          {/* Adicionamos a prop theme="light" em todos os Inputs abaixo */}
+          <div className={styles.formRow}>
+            <Input theme="light" label="Nome Completo" id="clientName" type="text" value={name} onChange={e => setName(e.target.value)} required />
+            <Input theme="light" label="Whatsapp" id="clientWhatsapp" type="tel" value={whatsapp} onChange={e => setWhatsapp(e.target.value)} required />
+          </div>
+          <div className={styles.formRow}>
+            <Input theme="light" label="CPF" id="clientCpf" type="text" required />
+            <Input theme="light" label="Email" id="clientEmail" type="email" required />
+          </div>
+          <div className={styles.formRow}>
+            <Input theme="light" label="CEP" id="clientCep" type="text" required />
+            <Input theme="light" label="Ocupação" id="clientOccupation" type="text" required />
+          </div>
+          <div className={styles.formRow}>
+            <Input theme="light" label="Rua / Avenida" id="clientStreet" type="text" required />
+            <Input theme="light" label="Complemento" id="clientComplement" type="text" />
+          </div>
           <Button type="submit" style={{ maxWidth: '300px', marginTop: '1rem' }}>Cadastrar Cliente</Button>
         </form>
       </div>
@@ -54,7 +67,7 @@ function Clients() {
                   <span>{client.email}</span>
                 </div>
                 <div className={styles.clientActions}>
-                  <Link to={`/clientes/${client.id}`} className="button-like">Ver Detalhes</Link>
+                 <Link to={`/clientes/${client.id}`} className={styles.detailsButton}>Ver Detalhes</Link>
                 </div>
               </div>
             </Card>

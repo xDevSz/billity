@@ -1,17 +1,16 @@
-/* src/styles/AuthLayout.module.css */
+/* src/styles/AuthLayout.module.css - Para Telas com Fundo Escuro */
 
 .loginContainer {
-  /* Usa Flexbox para controlar o alinhamento */
   display: flex;
-  /* Centraliza o card na horizontal */
   justify-content: center;
-  /* Centraliza o card na vertical */
   align-items: center;
-  /* Garante que o container ocupe 100% da altura da tela */
   min-height: 100vh;
-  /* Adiciona um espaçamento geral, bom para telas maiores */
   padding: 2rem;
-  box-sizing: border-box;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 480px;
 }
 
 .loginHeader {
@@ -19,14 +18,15 @@
   margin-bottom: 2rem;
 }
 
-.loginHeader h2 {
-  color: #FFD700;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+/* Garante que os títulos (h2) e parágrafos (p) sejam claros */
+.loginHeader h2, .loginHeader p {
+  color: #EAEAEA;
 }
 
-.loginHeader p {
-  color: #EAEAEA;
+.loginHeader h2 {
+  color: #FFD700; /* Destaque amarelo para o título principal */
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .loginForm {
@@ -47,11 +47,8 @@
   font-weight: bold;
 }
 
-.footerLinks a:hover {
-  text-decoration: underline;
-}
-
 .footerLinks p {
+  color: #EAEAEA; /* Garante que o parágrafo seja claro */
   margin-top: 1rem;
 }
 
@@ -61,10 +58,4 @@
   font-size: 0.9rem;
   margin-top: -10px;
   margin-bottom: 10px;
-}
-
-/* Adicione esta classe no final do arquivo */
-.formWrapper {
-  width: 100%;
-  max-width: 480px; /* Este é o tamanho menor que você queria */
 }

@@ -13,7 +13,10 @@ import ForgotPassword from './pages/ForgotPassword';
 // Páginas do App
 import Dashboard from './pages/Dashboard';
 import Clientes from './pages/Clientes'; 
-import ClientDetail from './pages/ClientDetails'; // Importa a nova página
+import Contracts from './pages/Contracts'; 
+import ClientDetail from './pages/ClientDetails'; 
+import Vencimentos from './pages/Vencimentos';
+import Settings from './pages/Settings';
 
 // import Contratos from './pages/Contratos';
 
@@ -34,7 +37,9 @@ function App() {
           {/* Adicione as outras rotas aqui */}
           <Route path="/clientes" element={<Clientes />} /> 
           <Route path="/clientes/:clientId" element={<ClientDetail />} />
-          {/* <Route path="/contratos" element={<Contratos />} /> */}
+          <Route path="/contracts" element={<Contracts />} /> 
+           <Route path="/vencimentos" element={<Vencimentos />} />
+            <Route path="/configuracoes" element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>

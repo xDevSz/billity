@@ -1,20 +1,25 @@
 // src/components/ui/Input/index.jsx
 
 import styles from './Input.module.css';
+import PropTypes from 'prop-types';
 
-// Recebemos várias props para tornar o Input reutilizável
-// label: O texto que aparece acima do campo
-// id: Um identificador único para o campo
-// ...props: Repassa qualquer outra propriedade (type, value, onChange, placeholder, etc.)
-function Input({ label, id, ...props }) {
+// Adicionamos a prop "theme", com 'dark' sendo o padrão
+function Input({ label, id, theme = 'dark', ...props }) {
   return (
     <div className={styles.inputWrapper}>
-      <label htmlFor={id} className={styles.label}>
+      {/* Aplicamos a theme como um atributo de dados */}
+      <label htmlFor={id} className={styles.label} data-theme={theme}>
         {label}
       </label>
       <input id={id} className={styles.input} {...props} />
     </div>
   );
 }
+
+Input.propTypes = {
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  theme: PropTypes.string, // 'dark' ou 'light'
+};
 
 export default Input;

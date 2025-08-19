@@ -24,7 +24,7 @@ KpiCard.propTypes = {
 };
 
 KpiCard.defaultProps = {
-  iconBgColor: '#e0f2f1', // Verde claro padrão
+  iconBgColor: '#e0f2f1', 
 };
 
 export default KpiCard;

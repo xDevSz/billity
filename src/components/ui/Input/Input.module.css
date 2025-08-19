@@ -7,15 +7,23 @@
 }
 
 .label {
-  /* A CORREÇÃO ESTÁ AQUI */
-  color: #000000; /* Cor branca para contraste máximo */
+  /* Estilo base do label */
   font-size: 1rem;
-  font-weight: 500; /* Deixa a fonte um pouco mais "cheia" */
+  font-weight: 500;
   margin-bottom: 10px;
 }
 
+/* --- Lógica de Tema para a Cor do Label --- */
+.label[data-theme="dark"] {
+  color: #FFFFFF; /* Texto branco para fundo escuro */
+}
+.label[data-theme="light"] {
+  color: #333333; /* Texto escuro para fundo claro */
+}
+
+/* O estilo do input em si pode continuar o mesmo por enquanto */
 .input {
-  background-color: #f2ecec;
+  background-color: #1a1a1a;
   border: 1px solid #555;
   color: #FFFFFF;
   padding: 16px 18px; 
@@ -23,11 +31,7 @@
   font-size: 1.1rem; 
   transition: all 0.3s ease;
 }
-
-.input::placeholder {
-  color: #6c757d;
-}
-
+.input::placeholder { color: #6c757d; }
 .input:focus {
   outline: none;
   border-color: #FFD700;

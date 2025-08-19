@@ -1,0 +1,61 @@
+/* src/pages/Contracts/Contracts.module.css */
+
+.contractsContainer {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+.contractsContainer h2 { color: #333; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+.form { display: flex; flex-direction: column; gap: 1.5rem; }
+.formRow { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+/* Estilo para o <select> parecer com o <Input> */
+.selectWrapper { display: flex; flex-direction: column; width: 100%; }
+.selectWrapper label { color: #333; font-size: 1rem; font-weight: 500; margin-bottom: 10px; }
+.selectWrapper select {
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 16px 18px; 
+  border-radius: 8px;
+  font-size: 1.1rem; 
+  transition: all 0.3s ease;
+  width: 100%;
+  -webkit-appearance: none; /* Remove a aparência padrão no Mac/iOS */
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5em;
+}
+.selectWrapper select:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+}
+
+.signatureSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+.signatureSection input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.signatureSection label {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .formRow { grid-template-columns: 1fr; }
+}

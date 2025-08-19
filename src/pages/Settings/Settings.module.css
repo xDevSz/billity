@@ -1,0 +1,102 @@
+/* src/pages/Settings/Settings.module.css */
+.settingsContainer {
+  background-color: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+  max-width: 800px; /* Um pouco maior para mais respiro */
+  margin: 0 auto;
+}
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2.5rem; /* Mais espaço após as abas */
+}
+.tabs button {
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+.tabs button.active, .tabs button:hover {
+  color: var(--theme-accent);
+  border-bottom-color: var(--theme-accent);
+}
+
+.tabContent h2 {
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Mais espaço entre os grupos de configurações */
+}
+.formActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+.themeSelector {
+  padding-top: 1rem;
+}
+.themeSelector p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* NOVO: Linha de Configuração para agrupar label e input */
+.settingRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.settingRow label, .settingRow p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.settingRow small {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding-bottom: 0.5rem; /* Espaço entre a descrição e o input */
+}
+
+/* --- Estilo para o Toggle Switch --- */
+.toggleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-tertiary);
+  padding: 1rem 1.5rem; /* Mais padding */
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+.toggleRow label {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.switch { position: relative; display: inline-block; width: 50px; height: 28px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 28px; }
+.slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--theme-accent); }
+input:focus + .slider { box-shadow: 0 0 1px var(--theme-accent); }
+input:checked + .slider:before { transform: translateX(22px); }
