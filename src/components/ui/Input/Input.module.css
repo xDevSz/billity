@@ -7,16 +7,17 @@
 }
 
 .label {
-  color: #EAEAEA;
-  font-size: 1rem; /* Aumenta a fonte do label */
-  margin-bottom: 10px; /* Mais espaço */
+  /* A CORREÇÃO ESTÁ AQUI */
+  color: #000000; /* Cor branca para contraste máximo */
+  font-size: 1rem;
+  font-weight: 500; /* Deixa a fonte um pouco mais "cheia" */
+  margin-bottom: 10px;
 }
 
 .input {
-  background-color: #1a1a1a;
-  border: 1px solid #555; /* Borda mais visível */
+  background-color: #f2ecec;
+  border: 1px solid #555;
   color: #FFFFFF;
-  /* AUMENTAMOS O PADDING E A FONTE */
   padding: 16px 18px; 
   border-radius: 8px;
   font-size: 1.1rem; 
@@ -30,5 +31,5 @@
 .input:focus {
   outline: none;
   border-color: #FFD700;
-  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2); /* Efeito de brilho ao focar */
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
 }

@@ -12,8 +12,9 @@ import ForgotPassword from './pages/ForgotPassword';
 
 // Páginas do App
 import Dashboard from './pages/Dashboard';
-// Crie rascunhos para as páginas abaixo para os links funcionarem
-// import Clientes from './pages/Clientes'; 
+import Clientes from './pages/Clientes'; 
+import ClientDetail from './pages/ClientDetails'; // Importa a nova página
+
 // import Contratos from './pages/Contratos';
 
 import './index.css';
@@ -31,7 +32,8 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           {/* Adicione as outras rotas aqui */}
-          {/* <Route path="/clientes" element={<Clientes />} /> */}
+          <Route path="/clientes" element={<Clientes />} /> 
+          <Route path="/clientes/:clientId" element={<ClientDetail />} />
           {/* <Route path="/contratos" element={<Contratos />} /> */}
         </Route>
       </Routes>
