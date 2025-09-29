@@ -1,55 +1,30 @@
 // src/pages/Dashboard/index.jsx
-
-import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext.jsx';
 import styles from './Dashboard.module.css';
 
-// Componentes do Dashboard que criamos
+// Componentes
 import KpiCard from '../../components/dashboard/KpiCard';
 import TransactionTimeline from '../../components/dashboard/TransactionTimeline';
+import ClientChart from '../../components/dashboard/ClientChart';
+import CompleteProfileBanner from '../../components/dashboard/CompleteProfileBanner';
 
-// Ícones que vamos usar
-import { BiErrorCircle, BiDollarCircle, BiBarChartAlt, BiLineChart, BiTrendingUp } from 'react-icons/bi';
+// Funções do "Banco de Dados"
+import { loadData } from '../../data/mockDatabase.js';
 
-// --- Dados Simulados (Mock) para o Protótipo ---
-// No futuro, estes dados virão da sua API
-const mockData = {
-  kpis: [
-    { id: 1, title: 'Total Emprestado', value: 'R$ 1.250,00', icon: <BiTrendingUp />, color: '#e6f7ff' },
-    { id: 2, title: 'Total a Receber', value: 'R$ 1.575,00', icon: <BiDollarCircle />, color: '#fff0f6' },
-    { id: 3, title: 'Lucro Previsto', value: 'R$ 325,00', icon: <BiLineChart />, color: '#f6ffed' },
-    { id: 4, title: 'Juros Médio', value: '26%', icon: <BiBarChartAlt />, color: '#fffbe6' },
-  ],
-  transactions: [
-    { id: 1, type: 'emprestimo', description: 'Contrato #12 - João Silva', amount: '- R$ 500,00', date: '15 de Ago, 2025' },
-    { id: 2, type: 'recebimento', description: 'Parcela 1/5 - Maria Costa', amount: '+ R$ 125,50', date: '12 de Ago, 2025' },
-    { id: 3, type: 'emprestimo', description: 'Contrato #13 - Ana Souza', amount: '- R$ 750,00', date: '10 de Ago, 2025' },
-    { id: 4, type: 'recebimento', description: 'Parcela 3/3 - Carlos Lima', amount: '+ R$ 350,00', date: '08 de Ago, 2025' },
-  ]
-};
+// Ícones
+import { BiErrorCircle, BiDollarCircle, BiTrendingUp, BiLineChart, BiUserMinus } from 'react-icons/bi';
 
-// --- Sub-componente do Banner ---
-const CompleteProfileBanner = ({ onOpenModal }) => (
-  <div className={styles.banner}>
-    <BiErrorCircle />
-    <div className={styles.bannerText}>
-      <strong>Seu cadastro está incompleto.</strong>
-      <span>Para liberar todas as funcionalidades da plataforma, por favor, complete seu perfil.</span>
-    </div>
-    <button onClick={onOpenModal} className={styles.bannerButton}>
-      Completar Cadastro
-    </button>
-  </div>
-);
-CompleteProfileBanner.propTypes = {
-  onOpenModal: PropTypes.func.isRequired,
-};
-
-// --- Componente Principal do Dashboard ---
 function Dashboard() {
   const { user, openProfileModal } = useAuth();
+  const [data, setData] = useState(null);
 
-  // Se o perfil estiver incompleto, não mostramos os dados do dashboard
+  // Carrega os dados do localStorage na primeira renderização
+  useEffect(() => {
+    setData(loadData());
+  }, []);
+
+  // Se o perfil está incompleto, mostra o banner
   if (!user.profileComplete) {
     return (
       <div className={styles.dashboard}>
@@ -61,27 +36,35 @@ function Dashboard() {
     );
   }
 
-  // Se o perfil estiver completo, mostramos o dashboard real
+  // Se os dados ainda não foram carregados, mostra um loading
+  if (!data) {
+    return <div>Carregando dados do dashboard...</div>;
+  }
+  
+  // Dashboard completo
   return (
     <div className={styles.dashboard}>
+      <header className={styles.header}>
+        <h1>Dashboard</h1>
+        <p>Visão geral do seu negócio em tempo real.</p>
+      </header>
+
+      {/* Grid de KPIs */}
       <div className={styles.kpiGrid}>
-        {mockData.kpis.map(kpi => (
-          <KpiCard 
-            key={kpi.id} 
-            title={kpi.title} 
-            value={kpi.value} 
-            icon={kpi.icon}
-            iconBgColor={kpi.color}
-          />
-        ))}
+        <KpiCard title="Total Emprestado" value={data.kpis.totalEmprestado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} icon={<BiTrendingUp />} />
+        <KpiCard title="Total a Receber" value={data.kpis.totalAReceber.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} icon={<BiDollarCircle />} />
+        <KpiCard title="Lucro Previsto" value={data.kpis.lucroPrevisto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} icon={<BiLineChart />} />
+        <KpiCard title="Taxa de Inadimplência" value={`${data.kpis.taxaInadimplencia}%`} icon={<BiUserMinus />} />
       </div>
 
+      {/* Grid de Conteúdo Principal (Gráfico e Transações) */}
       <div className={styles.contentGrid}>
-        <TransactionTimeline transactions={mockData.transactions} />
-        <div className={styles.chartPlaceholder}>
-          <h3>Clientes</h3>
-          <p>(Gráfico de evolução de clientes)</p>
+        <div className={styles.mainContent}>
+          <ClientChart data={data.clientGrowth} />
         </div>
+        <aside className={styles.sidebarContent}>
+          <TransactionTimeline transactions={data.transactions} />
+        </aside>
       </div>
     </div>
   );

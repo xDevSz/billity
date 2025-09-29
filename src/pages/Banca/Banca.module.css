@@ -1,0 +1,161 @@
+/* src/pages/Banca/Banca.module.css */
+
+.bancaContainer {
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #d4aa03;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #d4aa03;
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpiCard {
+  background-color: #1e1e1e;
+  border: 1px solid #3a3a3a;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconWrapper {
+  font-size: 2.5rem;
+  color: #FFD700;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.textWrapper span {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+.textWrapper strong {
+  color: #e0e0e0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Estilo para o card em estado de alerta */
+.kpiCard.alert strong {
+  color: #EF4444; /* Vermelho */
+}
+.kpiCard.alert .iconWrapper {
+  color: #EF4444;
+}
+
+.alertMessage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid #EF4444;
+  color: #fca5a5;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.alertMessage svg {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #1e1e1e;
+  border: 1px solid #3a3a3a;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  background-color: #121212;
+  border: 1px solid #3a3a3a;
+  color: #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.input:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.buttonAporte, .buttonRetirada {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.buttonAporte {
+  background-color: #10B981; /* Verde */
+  color: #ffffff;
+}
+.buttonRetirada {
+  background-color: #EF4444; /* Vermelho */
+  color: #ffffff;
+}
+
+.buttonAporte:hover, .buttonRetirada:hover {
+  opacity: 0.9;
+}

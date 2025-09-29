@@ -1,19 +1,21 @@
 /* src/components/ui/Card/Card.module.css */
 
 .card {
-  background-color: #2a2a2a;
-  /* AUMENTAMOS MUITO O PADDING INTERNO */
-  padding: 3rem 3.5rem; 
+  background-color: #0D0D0D;
+  
+  /* Padding vertical e horizontal reduzido para um card mais compacto */
+  padding: 2.5rem 2rem; 
+  
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid #3a3a3a;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid #222;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Em telas pequenas, diminuímos um pouco o padding para não comer tanto espaço */
 @media (max-width: 600px) {
   .card {
-    padding: 2.5rem 1.5rem;
+    /* Padding ainda menor em telas de celular */
+    padding: 2rem 1.5rem;
   }
 }

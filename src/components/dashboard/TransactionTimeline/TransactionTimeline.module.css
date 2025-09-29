@@ -1,20 +1,60 @@
 /* src/components/dashboard/TransactionTimeline/TransactionTimeline.module.css */
 .timeline {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.timeline h3 { color: #333; margin-bottom: 1rem; }
-.timeline ul { list-style: none; }
-.timeline li { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
-.timeline li:last-child { border-bottom: none; }
-.iconRecebido, .iconEmprestado { display: flex; font-size: 1.5rem; padding: 8px; border-radius: 50%; margin-right: 1rem; }
-.iconRecebido { background-color: #d4edda; color: #155724; }
-.iconEmprestado { background-color: #f8d7da; color: #721c24; }
-.details { flex-grow: 1; display: flex; flex-direction: column; }
-.details span { font-weight: 500; color: #333; }
-.details small { color: #6c757d; }
-.amountRecebido, .amountEmprestado { font-weight: bold; }
-.amountRecebido { color: #155724; }
-.amountEmprestado { color: #721c24; }
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.icon {
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon.income { background-color: rgba(16, 185, 129, 0.1); color: #10B981; }
+.icon.expense { background-color: rgba(239, 68, 68, 0.1); color: #EF4444; }
+
+.details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.description { color: #e0e0e0; }
+.date { font-size: 0.8rem; color: #b0b0b0; }
+
+.amount { font-weight: 600; }
+.amount.income { color: #10B981; }
+.amount.expense { color: #EF4444; }

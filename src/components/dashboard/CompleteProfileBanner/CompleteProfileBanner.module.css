@@ -1,0 +1,35 @@
+/* src/components/dashboard/CompleteProfileBanner/CompleteProfileBanner.module.css */
+.banner {
+  display: flex;
+  align-items: center;
+  background-color: #332E1A; 
+  color: #FFD700;
+  padding: 1rem 1.5rem;
+  border: 1px solid #55481F;
+  border-radius: 8px;
+}
+.banner svg {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+.bannerText {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bannerText span {
+  font-size: 0.9rem;
+}
+.bannerButton {
+  background-color: #FFD700;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.bannerButton:hover {
+  background-color: #ffca2c;
+}

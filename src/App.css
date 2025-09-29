@@ -1,8 +1,30 @@
+/* Coloque no TOPO do seu arquivo CSS global (index.css ou App.css) */
+
+/* Reset mais agressivo para garantir que NENHUM elemento tenha 
+  margens ou paddings que causem overflow.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Garante que a base da sua aplicação (incluindo o #root do React) 
+  ocupe a tela corretamente e ESCONDA qualquer overflow horizontal.
+*/
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; 
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+   box-sizing: border-box;
+   overflow-x: hidden;
 }
 
 .logo {
@@ -40,3 +62,6 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Em index.css ou App.css */
+

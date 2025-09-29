@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Layouts
@@ -17,8 +15,8 @@ import Contracts from './pages/Contracts';
 import ClientDetail from './pages/ClientDetails'; 
 import Vencimentos from './pages/Vencimentos';
 import Settings from './pages/Settings';
-
-// import Contratos from './pages/Contratos';
+import Banca from './pages/Banca';
+import Inadimplencia from './pages/Inadimplencia'; // <-- Importa a página de Inadimplência
 
 import './index.css';
 
@@ -26,20 +24,24 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rotas de Autenticação (não têm a sidebar) */}
+        {/* Rotas de Autenticação */}
         <Route path="/" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
         <Route path="/recuperar-senha" element={<ForgotPassword />} />
 
-        {/* Rotas Protegidas (todas usam o MainLayout) */}
+        {/* Rotas Protegidas (dentro do layout com sidebar) */}
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* Adicione as outras rotas aqui */}
           <Route path="/clientes" element={<Clientes />} /> 
           <Route path="/clientes/:clientId" element={<ClientDetail />} />
           <Route path="/contracts" element={<Contracts />} /> 
-           <Route path="/vencimentos" element={<Vencimentos />} />
-            <Route path="/configuracoes" element={<Settings />} />
+          <Route path="/vencimentos" element={<Vencimentos />} />
+          <Route path="/configuracoes" element={<Settings />} />
+          <Route path="/banca" element={<Banca />} />
+          
+          {/* Rota final para a página de Inadimplência */}
+          <Route path="/inadimplencia" element={<Inadimplencia />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
@@ -47,3 +49,4 @@ function App() {
 }
 
 export default App;
+

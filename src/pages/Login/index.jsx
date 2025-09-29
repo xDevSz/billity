@@ -6,6 +6,7 @@ import styles from '../../styles/AuthLayout.module.css';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Card from '../../components/ui/Card';
+import logo from '../../assets/logo10.png'; // Lembre-se de por sua logo aqui
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -21,7 +22,6 @@ function Login() {
 
     setTimeout(() => {
       if (email === 'admin@billity.com' && password === '123456') {
-        console.log('Login simulado com sucesso!');
         navigate('/dashboard');
       } else {
         setError('Email ou senha inválidos para o protótipo.');
@@ -35,6 +35,7 @@ function Login() {
       <div className={styles.formWrapper}>
         <Card>
           <div className={styles.loginHeader}>
+            <img src={logo} alt="Logo da Billity" className={styles.logo} />
             <h2>Billity</h2>
             <p>Acesse sua conta para gerenciar seu negócio.</p>
           </div>
@@ -58,9 +59,7 @@ function Login() {
               placeholder="Use: 123456"
               required
             />
-
             {error && <p className={styles.errorMessage}>{error}</p>}
-            
             <Button type="submit" disabled={loading}>
               {loading ? 'Entrando...' : 'Entrar'}
             </Button>
@@ -72,7 +71,6 @@ function Login() {
           </div>
         </Card>
       </div>
-      {/* 👆 E AQUI, FECHANDO A DIV 👆 */}
     </div>
   );
 }

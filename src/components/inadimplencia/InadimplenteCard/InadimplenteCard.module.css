@@ -1,0 +1,87 @@
+/* src/components/inadimplencia/InadimplenteCard/InadimplenteCard.module.css */
+.card {
+  background-color: #1e1e1e;
+  border: 1px solid #3a3a3a;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.foto {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3a3a3a;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.nome {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+.contrato {
+  font-size: 0.8rem;
+  color: #b0b0b0;
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.valor {
+  display: flex;
+  flex-direction: column;
+}
+
+.valor span {
+  font-size: 0.8rem;
+  color: #b0b0b0;
+}
+
+.valor strong {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #EF4444; /* Vermelho para destacar a dívida */
+}
+
+.atraso {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fca5a5; /* Vermelho claro */
+  background-color: rgba(239, 68, 68, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.atraso svg {
+  font-size: 1.2rem;
+}

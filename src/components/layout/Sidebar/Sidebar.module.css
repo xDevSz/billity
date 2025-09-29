@@ -10,31 +10,49 @@
   position: fixed;
   width: 250px;
   border-right: 1px solid #333;
+  /* NOVO: Sombra sutil para dar profundidade e transição para a responsividade */
+  box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000; /* Garante que a sidebar fique acima do conteúdo */
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #FFD700;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.0rem;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
 }
 
 .logo img {
-  height: 40px;
-  width: 40px;
+  /* CORRIGIDO: Usar max-width para a logo ser responsiva e não distorcer */
+  max-width: 180px;
+  height: auto;
 }
 
-/* Regra que empurra o link de Configurações para baixo */
 .nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1; /* Essencial para ocupar o espaço vertical */
+  flex-grow: 1;
+  /* NOVO: Adiciona rolagem se os itens não couberem na altura da tela */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* NOVO: Estilização da barra de rolagem para temas escuros */
+.nav::-webkit-scrollbar {
+  width: 6px;
+}
+.nav::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+.nav::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 10px;
 }
 
 .mainNav, .bottomNav {
@@ -43,23 +61,52 @@
 }
 
 .mainNav li, .bottomNav li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Espaçamento reduzido para um visual mais limpo */
+}
+
+/* NOVO: Animação de entrada para os itens da lista */
+.mainNav li {
+  animation: slideIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+/* Atraso em cascata para cada item aparecer um após o outro */
+.mainNav li:nth-child(1) { animation-delay: 0.1s; }
+.mainNav li:nth-child(2) { animation-delay: 0.2s; }
+.mainNav li:nth-child(3) { animation-delay: 0.3s; }
+.mainNav li:nth-child(4) { animation-delay: 0.4s; }
+.mainNav li:nth-child(5) { animation-delay: 0.5s; }
+.mainNav li:nth-child(6) { animation-delay: 0.6s; }
+.mainNav li:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .nav a {
-  color: #e0e0e0;
+  color: #b0b0b0; /* Cor do texto suavizada */
   text-decoration: none;
   display: flex;
   align-items: center;
   padding: 12px 15px;
   border-radius: 8px;
-  font-size: 1.1rem;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem; /* Tamanho da fonte ajustado */
+  /* NOVO: Posição relativa para o indicador de link ativo */
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .nav a:hover {
   background-color: #2a2a2a;
   color: #ffffff;
+  /* NOVO: Efeito de "empurrar" para a direita no hover */
+  transform: translateX(5px);
 }
 
 .nav a.active {
@@ -68,9 +115,22 @@
   font-weight: bold;
 }
 
+/* NOVO: Indicador visual para o link ativo (uma barrinha na esquerda) */
+.nav a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 4px;
+  background-color: #1a1a1a;
+  border-radius: 0 4px 4px 0;
+}
+
 .nav a svg {
   margin-right: 12px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .disabledLink {
@@ -83,5 +143,22 @@
 }
 .disabledLink svg {
   margin-right: 12px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+}
+
+/* --- RESPONSIVIDADE PARA TELAS PEQUENAS (CELULARES) --- */
+@media (max-width: 768px) {
+  .sidebar {
+    /* Por padrão, a sidebar fica escondida fora da tela */
+    transform: translateX(-100%);
+  }
+
+  /* NOVO: Classe para controlar a exibição da sidebar (via JavaScript) */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .logo img {
+    max-width: 160px; /* Logo um pouco menor em telas pequenas */
+  }
 }

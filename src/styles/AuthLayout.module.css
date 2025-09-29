@@ -1,16 +1,30 @@
-/* src/styles/AuthLayout.module.css - Para Telas com Fundo Escuro */
+/* src/styles/AuthLayout.module.css */
 
 .loginContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Centraliza verticalmente de forma correta */
   min-height: 100vh;
-  padding: 2rem;
+  width: 100%;
+  padding: 2rem 1rem; /* Um padding seguro para telas de todos os tamanhos */
+  
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+    url('../assets/touca.png'); 
+  
+  background-size: cover;
+  background-position: center;
 }
 
 .formWrapper {
   width: 100%;
-  max-width: 480px;
+  max-width: 420px; /* Reduzido para um visual mais elegante */
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .loginHeader {
@@ -18,21 +32,45 @@
   margin-bottom: 2rem;
 }
 
-/* Garante que os títulos (h2) e parágrafos (p) sejam claros */
-.loginHeader h2, .loginHeader p {
-  color: #EAEAEA;
+.logo {
+  max-width: 220px; 
+  height: auto;
+  margin-bottom: 1.5rem;
 }
 
 .loginHeader h2 {
-  color: #FFD700; /* Destaque amarelo para o título principal */
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  color: #DAA520;
+  font-size: 1.7rem; 
+  margin: 0;
+}
+
+.loginHeader p {
+  color: #b0b0b0;
+  margin-top: 0.5rem;
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem; /* Espaçamento entre inputs reduzido */
+}
+
+.loginForm button {
+  background-color: #DAA520;
+  color: #0D0D0D;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem; /* Botão um pouco mais compacto */
+  cursor: pointer;
+  margin-top: 0.5rem; /* Espaço extra antes do botão */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.loginForm button:hover {
+  background-color: #c8941c;
+  transform: scale(1.03);
 }
 
 .footerLinks {
@@ -48,7 +86,7 @@
 }
 
 .footerLinks p {
-  color: #EAEAEA; /* Garante que o parágrafo seja claro */
+  color: #A0A0A0;
   margin-top: 1rem;
 }
 
@@ -56,6 +94,11 @@
   color: #ff6b6b;
   text-align: center;
   font-size: 0.9rem;
-  margin-top: -10px;
-  margin-bottom: 10px;
+  margin: -0.5rem 0 0.5rem 0; /* Ajuste fino de posição */
+}
+
+@media (max-width: 600px) {
+  .logo {
+    max-width: 160px;
+  }
 }

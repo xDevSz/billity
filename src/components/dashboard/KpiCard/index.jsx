@@ -2,10 +2,10 @@
 import PropTypes from 'prop-types';
 import styles from './KpiCard.module.css';
 
-function KpiCard({ title, value, icon, iconBgColor }) {
+const KpiCard = ({ title, value, icon }) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.iconWrapper} style={{ backgroundColor: iconBgColor }}>
+    <div className={styles.kpiCard}>
+      <div className={styles.iconWrapper}>
         {icon}
       </div>
       <div className={styles.textWrapper}>
@@ -14,17 +14,12 @@ function KpiCard({ title, value, icon, iconBgColor }) {
       </div>
     </div>
   );
-}
+};
 
 KpiCard.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
-  iconBgColor: PropTypes.string,
-};
-
-KpiCard.defaultProps = {
-  iconBgColor: '#e0f2f1', 
 };
 
 export default KpiCard;

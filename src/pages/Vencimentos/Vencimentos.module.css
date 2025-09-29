@@ -1,11 +1,11 @@
 /* src/pages/Vencimentos/Vencimentos.module.css */
 
 .vencimentosContainer {
-  background-color: #fff;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  color: #333;
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #3a3a3a;
+  color: #e0e0e0;
 }
 
 .header {
@@ -14,41 +14,135 @@
   align-items: center;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .header h2 {
-  color: #333;
+  font-size: 1.75rem;
   margin: 0;
 }
 
-.filters {
+.legend {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+/* Estilo para a bolinha na legenda */
+.legend .dayNumber {
+  width: 20px;
+  height: 20px;
 }
 
-.filters select {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  background-color: #f8f9fa;
+
+/* --- MELHORIA: Marcadores Grandes e Visíveis --- */
+.dayNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
+.aVencer {
+  background-color: #10B981; /* Verde */
+  color: #ffffff;
+}
+
+.vencido {
+  background-color: #EF4444; /* Vermelho */
+  color: #ffffff;
+}
+
+
+/* --- MELHORIA: Divisão do Calendário Mais Clara --- */
 .calendarWrapper {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  /* Cor de fundo BEM escura para o calendário, que aparecerá nos gaps */
+  --rbc-calendar-bg: #000000;
+  --rbc-day-bg: #1e1e1e;
+  --rbc-today-bg: #332E1A;
+  --rbc-off-range-bg: #121212; /* Cor mais escura para dias de outros meses */
+  --rbc-text-color: #e0e0e0;
 }
 
-/* Estilo para o evento customizado dentro do dia */
-.event {
+.calendarWrapper :global(.rbc-calendar) {
+  background-color: var(--rbc-calendar-bg);
+  border: none;
+  border-radius: 12px;
+  padding: 5px; /* Adiciona um padding para a borda externa */
+}
+
+/* Criando o efeito de "gap" (espaçamento) entre os dias */
+.calendarWrapper :global(.rbc-month-view) {
+  border: none;
+}
+.calendarWrapper :global(.rbc-day-bg) {
+  /* Usamos a borda transparente para criar um espaçamento real */
+  border: 5px solid transparent; 
+  background-clip: padding-box;
+  border-radius: 8px;
+  background-color: var(--rbc-day-bg);
+  transition: background-color 0.2s ease;
+}
+
+/* Efeito de hover para os dias */
+.calendarWrapper :global(.rbc-day-bg:hover) {
+  background-color: #2a2a2a;
+}
+
+/* Centralizando o número do dia (nosso componente customizado) */
+.calendarWrapper :global(.rbc-date-cell) {
   display: flex;
-  flex-direction: column;
-  font-size: 0.8rem;
-  line-height: 1.2;
+  justify-content: center;
+  padding-top: 8px;
+}
+/* Remove o link padrão do número do dia, já que agora temos o nosso */
+.calendarWrapper :global(.rbc-date-cell a) {
+  display: none;
 }
 
-.event strong {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; /* Adiciona "..." se o nome for muito grande */
+/* Estilos para o cabeçalho dos dias da semana (Dom, Seg, Ter...) */
+.calendarWrapper :global(.rbc-header) {
+  border: none;
+  padding: 1rem 0;
+  color: #b0b0b0;
+  font-weight: 600;
+}
+
+/* Estilos para a barra de navegação (Mês, <, >) */
+.calendarWrapper :global(.rbc-toolbar) {
+  background-color: transparent;
+  padding: 1rem;
+}
+.calendarWrapper :global(.rbc-toolbar button) {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #3a3a3a;
+}
+.calendarWrapper :global(.rbc-toolbar button:hover) {
+  background-color: #3a3a3a;
+}
+.calendarWrapper :global(.rbc-toolbar button.rbc-active) {
+  background-color: #332E1A;
+  color: #FFD700;
+}
+.calendarWrapper :global(.rbc-toolbar .rbc-toolbar-label) {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Cores para dias fora do mês e o dia atual */
+.calendarWrapper :global(.rbc-off-range-bg) {
+  background-color: var(--rbc-off-range-bg) !important;
+}
+.calendarWrapper :global(.rbc-today) {
+  background-color: var(--rbc-today-bg) !important;
 }

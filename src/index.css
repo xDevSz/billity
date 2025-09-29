@@ -1,34 +1,42 @@
 /* src/index.css */
 
-/* --- TEMA CLARO (Padrão para o seletor, mas o body começa escuro) --- */
-:root {
-  --background-primary: #f8f9fa; /* Cinza bem claro */
-  --background-secondary: #ffffff; /* Branco */
-  --background-tertiary: #f0f0f0; /* Um cinza um pouco mais escuro */
-  
-  --text-primary: #212529; /* Preto suave */
-  --text-secondary: #6c757d; /* Cinza médio */
-  --border-color: #dee2e6; /* Borda clara */
+/* 1. Reset Essencial */
+/* Remove margens e paddings padrão e ajusta o cálculo de tamanho dos elementos. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  --theme-accent: #004d40; /* Verde escuro para o tema claro */
+/* 2. Regra Base */
+/* Garante que a aplicação ocupe toda a tela e remove a barra de rolagem horizontal de vez. */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* 3. Estilos de Tema (Isso é bom e podemos manter) */
+/* --- TEMA CLARO --- */
+:root {
+  --background-primary: #f8f9fa;
+  --background-secondary: #ffffff;
+  --text-primary: #212529;
+  --border-color: #dee2e6;
+  --theme-accent: #004d40;
 }
 
 /* --- TEMA ESCURO --- */
 [data-theme='dark'] {
-  --background-primary: #121212; /* Preto principal */
-  --background-secondary: #1e1e1e; /* Preto para cards */
-  --background-tertiary: #2a2a2a; /* Cinza escuro para hover/inputs */
-
-  --text-primary: #e0e0e0; /* Branco suave */
-  --text-secondary: #b0b0b0; /* Cinza claro */
-  --border-color: #3a3a3a; /* Borda escura */
-
-  --theme-accent: #FFD700; /* Amarelo */
+  --background-primary: #121212;
+  --background-secondary: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --border-color: #3a3a3a;
+  --theme-accent: #FFD700;
 }
 
-/* Reset global usando as variáveis */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body, #root { height: 100%; width: 100%; }
+/* 4. Estilos Globais do Body */
+/* Define a fonte e as cores de fundo e texto usando as variáveis do tema. */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--background-primary);
@@ -36,4 +44,8 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* ... (seu código .button-like, se ainda precisar dele globalmente) ... */
+/*
+  TODAS AS REGRAS PADRÃO DO VITE/REACT FORAM REMOVIDAS DAQUI PARA BAIXO.
+  (O #root com padding, .logo, .card, @keyframes, etc.)
+*/
+

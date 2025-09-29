@@ -1,0 +1,90 @@
+/* src/components/vencimentos/VencimentoModal/VencimentoModal.module.css */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #3a3a3a;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #b0b0b0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.closeButton:hover { color: #fff; }
+
+.modalHeader h3 {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.eventsList {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+}
+.eventItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+.eventItem:last-child { border-bottom: none; }
+.eventItem svg { font-size: 1.5rem; }
+.eventDetails { display: flex; flex-direction: column; }
+.eventDetails strong { color: #e0e0e0; }
+.eventDetails span { color: #b0b0b0; font-size: 0.9rem; }
+.vencidoIcon { color: #EF4444; }
+.aVencerIcon { color: #10B981; }
+.noEvents { color: #6c757d; text-align: center; padding: 2rem 0; }
+
+.addButton {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #FFD700;
+  color: #1a1a1a;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+.addButton:hover { background-color: #ffca2c; }
+.addButton svg { font-size: 1.2rem; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

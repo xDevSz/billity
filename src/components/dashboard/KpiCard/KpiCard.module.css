@@ -1,33 +1,44 @@
 /* src/components/dashboard/KpiCard/KpiCard.module.css */
-.card {
-  background-color: #ffffff;
-  border-radius: 12px;
+.kpiCard {
+  background-color: #1e1e1e;
+  border: 1px solid #3a3a3a;
+  border-radius: 16px;
   padding: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
+
+.kpiCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 .iconWrapper {
-  padding: 12px;
+  font-size: 2rem;
+  color: #FFD700;
+  background-color: #332E1A;
   border-radius: 50%;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
-  color: #004d40; /* Verde escuro */
 }
+
 .textWrapper {
   display: flex;
   flex-direction: column;
 }
+
 .title {
+  color: #b0b0b0;
   font-size: 0.9rem;
-  color: #6c757d;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
+
 .value {
-  font-size: 1.75rem;
+  color: #e0e0e0;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #212529;
 }
