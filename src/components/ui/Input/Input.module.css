@@ -1,5 +1,3 @@
-/* src/components/ui/Input/Input.module.css */
-
 .inputWrapper {
   display: flex;
   flex-direction: column;
@@ -13,19 +11,22 @@
   margin-bottom: 10px;
 }
 
-/* --- Lógica de Tema para a Cor do Label --- */
+/* --- Lógica de Tema para a Cor do Label (CORRIGIDA) --- */
+/* Esta regra garante que a cor do texto do label seja clara no tema escuro */
 .label[data-theme="dark"] {
-  color: #FFFFFF; /* Texto branco para fundo escuro */
-}
-.label[data-theme="light"] {
-  color: #333333; /* Texto escuro para fundo claro */
+  color: #FFFFFF; 
 }
 
-/* O estilo do input em si pode continuar o mesmo por enquanto */
+/* ESTA É A CORREÇÃO: Força o texto do label a ser ESCURO no tema claro */
+.label[data-theme="light"] {
+  color: #333333; 
+}
+
+/* O estilo do input (fundo e texto) volta ao original que você prefere */
 .input {
   background-color: #1a1a1a;
   border: 1px solid #555;
-  color: #FFFFFF;
+  color: #FFFFFF; /* Mantém o texto digitado sempre branco/claro */
   padding: 16px 18px; 
   border-radius: 8px;
   font-size: 1.1rem; 

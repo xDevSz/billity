@@ -16,7 +16,8 @@ import ClientDetail from './pages/ClientDetails';
 import Vencimentos from './pages/Vencimentos';
 import Settings from './pages/Settings';
 import Banca from './pages/Banca';
-import Inadimplencia from './pages/Inadimplencia'; // <-- Importa a página de Inadimplência
+import Inadimplencia from './pages/Inadimplencia'; 
+import UserProfile from './pages/UserProfile';
 
 import './index.css';
 
@@ -38,7 +39,7 @@ function App() {
           <Route path="/vencimentos" element={<Vencimentos />} />
           <Route path="/configuracoes" element={<Settings />} />
           <Route path="/banca" element={<Banca />} />
-          
+          <Route path="/perfil" element={<UserProfile />} />
           {/* Rota final para a página de Inadimplência */}
           <Route path="/inadimplencia" element={<Inadimplencia />} />
 

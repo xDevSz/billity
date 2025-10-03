@@ -1,5 +1,3 @@
-// src/components/CompleteProfileModal/index.jsx
-
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './CompleteProfileModal.module.css';
@@ -7,6 +5,7 @@ import Card from '../ui/Card';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import { useAuth } from '../../contexts/AuthContext';
+import { useTheme } from '../../contexts/ThemeContext'; // <--- Importação necessária
 import { IoClose } from 'react-icons/io5';
 import { BiMailSend } from 'react-icons/bi';
 
@@ -14,6 +13,7 @@ import { BiMailSend } from 'react-icons/bi';
 const RegisterForm = ({ onBack }) => {
   const [userType, setUserType] = useState('fisica');
   const { completeProfile } = useAuth();
+  const { theme } = useTheme(); // <--- Pega o tema
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,24 +33,24 @@ const RegisterForm = ({ onBack }) => {
       <form className={styles.form} onSubmit={handleSubmit}>
         {userType === 'fisica' ? (
           <>
-            <Input label="Nome Completo" id="fullName" type="text" required />
-            <Input label="CPF" id="cpf" type="text" required />
-            <Input label="Data de Nascimento" id="birthDate" type="date" required />
+            <Input label="Nome Completo" id="fullName" type="text" theme={theme} required />
+            <Input label="CPF" id="cpf" type="text" theme={theme} required />
+            <Input label="Data de Nascimento" id="birthDate" type="date" theme={theme} required />
           </>
         ) : (
           <>
-            <Input label="Razão Social" id="razaoSocial" type="text" required />
-            <Input label="CNPJ" id="cnpj" type="text" required />
+            <Input label="Razão Social" id="razaoSocial" type="text" theme={theme} required />
+            <Input label="CNPJ" id="cnpj" type="text" theme={theme} required />
           </>
         )}
-        <Input label="Telefone de Contato" id="phone" type="tel" required />
+        <Input label="Telefone de Contato" id="phone" type="tel" theme={theme} required />
         <fieldset className={styles.addressGrid}>
-          <div className={styles.fullWidth}><Input label="Rua / Avenida" id="street" type="text" required /></div>
-          <Input label="Número" id="number" type="text" required />
-          <Input label="Bairro" id="neighborhood" type="text" required />
-          <div className={styles.fullWidth}><Input label="Cidade" id="city" type="text" required /></div>
-          <Input label="Estado" id="state" type="text" required />
-          <Input label="CEP" id="zip" type="text" required />
+          <div className={styles.fullWidth}><Input label="Rua / Avenida" id="street" type="text" theme={theme} required /></div>
+          <Input label="Número" id="number" type="text" theme={theme} required />
+          <Input label="Bairro" id="neighborhood" type="text" theme={theme} required />
+          <div className={styles.fullWidth}><Input label="Cidade" id="city" type="text" theme={theme} required /></div>
+          <Input label="Estado" id="state" type="text" theme={theme} required />
+          <Input label="CEP" id="zip" type="text" theme={theme} required />
         </fieldset>
         <Button type="submit" style={{ marginTop: '1rem' }}>Salvar e Finalizar</Button>
         <a onClick={onBack} className={styles.backLink}>Voltar para seleção</a>
@@ -65,6 +65,7 @@ const LinkToCompanyForm = ({ onBack }) => {
   const [linkRequestSent, setLinkRequestSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const { completeProfile } = useAuth(); 
+  const { theme } = useTheme(); // <--- Pega o tema
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -96,10 +97,10 @@ const LinkToCompanyForm = ({ onBack }) => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.dualInputContainer}>
-          <Input label="Seu CPF" id="userCpf" type="text" required />
-          <Input label="CNPJ da Empresa" id="companyCnpj" type="text" required />
+          <Input label="Seu CPF" id="userCpf" type="text" theme={theme} required />
+          <Input label="CNPJ da Empresa" id="companyCnpj" type="text" theme={theme} required />
         </div>
-        <Input label="Seu Email" id="userEmail" type="email" required />
+        <Input label="Seu Email" id="userEmail" type="email" theme={theme} required />
         <Button type="submit" disabled={loading} style={{ marginTop: '1rem' }}>
           {loading ? 'Enviando...' : 'Enviar Solicitação'}
         </Button>
@@ -113,7 +114,7 @@ LinkToCompanyForm.propTypes = { onBack: PropTypes.func.isRequired };
 // --- Componente Principal do Modal ---
 function CompleteProfileModal() {
   const [mode, setMode] = useState('selection');
-  const { closeProfileModal } = useAuth(); // Pega a função de fechar do contexto
+  const { closeProfileModal } = useAuth(); 
 
   const renderContent = () => {
     if (mode === 'register') return <RegisterForm onBack={() => setMode('selection')} />;

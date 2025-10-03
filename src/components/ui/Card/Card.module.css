@@ -1,16 +1,21 @@
-/* src/components/ui/Card/Card.module.css */
-
 .card {
-  background-color: #0D0D0D;
+  /* CORRIGIDO: Agora usa variáveis de tema */
+  background-color: var(--background-secondary); 
   
-  /* Padding vertical e horizontal reduzido para um card mais compacto */
+  /* CORRIGIDO: Usa a variável de texto */
+  color: var(--text-primary); 
+  
+  /* Padding vertical e horizontal */
   padding: 2.5rem 2rem; 
   
   border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  border: 1px solid #222;
+  /* Sombra mais neutra */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  border: 1px solid var(--border-color); /* Usa a variável de borda */
   width: 100%;
   box-sizing: border-box;
+  /* Transição para suavizar a mudança de tema */
+  transition: background-color 0.3s, border-color 0.3s; 
 }
 
 @media (max-width: 600px) {

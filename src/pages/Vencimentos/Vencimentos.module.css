@@ -1,11 +1,20 @@
 /* src/pages/Vencimentos/Vencimentos.module.css */
 
 .vencimentosContainer {
-  background-color: #1e1e1e;
+  /* CORRIGIDO: Usa as variáveis de tema para fundo e borda */
+  background-color: var(--background-secondary); 
   padding: 2rem;
   border-radius: 16px;
-  border: 1px solid #3a3a3a;
-  color: #e0e0e0;
+  border: 1px solid var(--border-color); 
+  color: var(--text-primary); /* Usa a cor de texto primária */
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .header {
@@ -39,7 +48,7 @@
 }
 
 
-/* --- MELHORIA: Marcadores Grandes e Visíveis --- */
+/* --- Marcadores Grandes e Visíveis --- */
 .dayNumber {
   width: 32px;
   height: 32px;
@@ -62,22 +71,25 @@
 }
 
 
-/* --- MELHORIA: Divisão do Calendário Mais Clara --- */
+/* --- Estilos da Biblioteca react-big-calendar customizados para tema --- */
+
 .calendarWrapper {
-  font-family: 'Inter', sans-serif;
-  /* Cor de fundo BEM escura para o calendário, que aparecerá nos gaps */
-  --rbc-calendar-bg: #000000;
-  --rbc-day-bg: #1e1e1e;
-  --rbc-today-bg: #332E1A;
-  --rbc-off-range-bg: #121212; /* Cor mais escura para dias de outros meses */
-  --rbc-text-color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Usando as variáveis de tema principal, mas definindo cores mais escuras/claras específicas do calendário */
+  
+  /* Variáveis de cor específicas para o calendário: */
+  --rbc-calendar-bg: var(--background-secondary);
+  --rbc-day-bg: var(--background-secondary);
+  --rbc-today-bg: rgba(255, 215, 0, 0.1); /* Um destaque suave da cor de tema */
+  --rbc-off-range-bg: var(--background-primary); /* Fundo dos dias de outro mês */
+  --rbc-text-color: var(--text-primary);
 }
 
 .calendarWrapper :global(.rbc-calendar) {
   background-color: var(--rbc-calendar-bg);
   border: none;
   border-radius: 12px;
-  padding: 5px; /* Adiciona um padding para a borda externa */
+  padding: 5px; 
 }
 
 /* Criando o efeito de "gap" (espaçamento) entre os dias */
@@ -95,7 +107,7 @@
 
 /* Efeito de hover para os dias */
 .calendarWrapper :global(.rbc-day-bg:hover) {
-  background-color: #2a2a2a;
+  background-color: var(--background-primary);
 }
 
 /* Centralizando o número do dia (nosso componente customizado) */
@@ -113,7 +125,8 @@
 .calendarWrapper :global(.rbc-header) {
   border: none;
   padding: 1rem 0;
-  color: #b0b0b0;
+  color: var(--text-primary);
+  opacity: 0.7;
   font-weight: 600;
 }
 
@@ -123,18 +136,19 @@
   padding: 1rem;
 }
 .calendarWrapper :global(.rbc-toolbar button) {
-  background-color: #2a2a2a;
-  color: #e0e0e0;
-  border: 1px solid #3a3a3a;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 .calendarWrapper :global(.rbc-toolbar button:hover) {
-  background-color: #3a3a3a;
+  background-color: var(--border-color);
 }
 .calendarWrapper :global(.rbc-toolbar button.rbc-active) {
-  background-color: #332E1A;
-  color: #FFD700;
+  background-color: var(--theme-accent);
+  color: var(--background-secondary);
 }
 .calendarWrapper :global(.rbc-toolbar .rbc-toolbar-label) {
+  color: var(--text-primary);
   font-size: 1.5rem;
   font-weight: 700;
 }

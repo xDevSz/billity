@@ -1,0 +1,87 @@
+/* src/components/contracts/ContractSimulator/ContractSimulator.module.css */
+
+.simulatorCard {
+    /* Garante que o Card ocupe o espaço e centre o conteúdo */
+    margin: 2rem auto;
+    max-width: 800px; 
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+.headerIcon {
+    font-size: 1.8rem;
+    color: var(--theme-accent);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.inputGrid {
+    display: grid;
+    /* Adapta-se a 3 colunas em desktop e se ajusta em mobile */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --- Estilos dos Resultados --- */
+
+.results {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--border-color);
+    text-align: center;
+}
+
+.resultsTitle {
+    font-size: 1.3rem;
+    color: var(--theme-accent);
+    margin-bottom: 2rem;
+}
+
+.resultGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.resultItem {
+    padding: 1.5rem;
+    background-color: var(--background-primary); /* Contraste sutil */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+.resultItem span {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+}
+.resultItem strong {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--theme-accent);
+}
+.resultItem svg {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
