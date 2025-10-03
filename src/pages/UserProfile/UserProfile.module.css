@@ -1,0 +1,83 @@
+.settingsPage {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pageHeader {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.pageHeader h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--theme-accent); 
+}
+.pageHeader p {
+  font-size: 1.1rem;
+  color: #181818;
+  opacity: 1; 
+}
+
+/* CORRIGIDO: Aumenta a margem para separar os cards */
+.settingsSection {
+  margin-bottom: 3rem; 
+  padding: 2rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem; 
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.sectionHeader h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+.headerIcon {
+  font-size: 1.8rem;
+  color: var(--theme-accent);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; 
+}
+
+.form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 250px;
+  font-weight: 600;
+}
+
+.successMessage {
+  background-color: #28a74520;
+  color: #28a745;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .settingsPage {
+    padding: 1rem;
+  }
+  .pageHeader h1 {
+    font-size: 2rem;
+  }
+}

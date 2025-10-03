@@ -8,9 +8,20 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem('billityUser');
+    
+    // Define um usuário inicial genérico para a demo
+    const initialDemoUser = { 
+      isLoggedIn: true, 
+      profileComplete: true, 
+      nome: "Admin BILLITY", // Dado genérico
+      email: "admin@billity.com", // Dado genérico
+      telefone: "(99) 99999-9999",
+    };
+
+    // Se já houver um usuário salvo, usa-o. Caso contrário, usa o usuário de demonstração.
     return savedUser
       ? JSON.parse(savedUser)
-      : { isLoggedIn: true, profileComplete: false };
+      : initialDemoUser;
   });
 
   useEffect(() => {
@@ -38,12 +49,21 @@ export function AuthProvider({ children }) {
     closeProfileModal();
   };
 
+  // FUNÇÃO NECESSÁRIA PARA A TAREFA: Atualiza os dados de perfil do usuário logado
+  const updateUserProfile = (newProfileData) => {
+    setUser(prev => ({
+      ...prev,
+      ...newProfileData, 
+    }));
+  };
+
   const value = {
     user,
     isProfileModalOpen,
     closeProfileModal,
     openProfileModal,
     completeProfile,
+    updateUserProfile, // <-- Adicionado
   };
 
   return (

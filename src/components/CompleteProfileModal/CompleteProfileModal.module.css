@@ -1,5 +1,3 @@
-/* src/components/CompleteProfileModal/module.css */
-
 .overlay {
   position: fixed;
   inset: 0;
@@ -10,13 +8,14 @@
   z-index: 1000;
   padding: 2rem 1rem;
   overflow-y: auto;
+  /* Fundo fixo para o overlay (geralmente escuro, mesmo no tema claro) */
   background-color: rgba(0, 0, 0, 0.85);
 }
 
 .modalContent {
   width: 100%;
   max-width: 1100px;
-  position: relative; /* Necessário para posicionar o botão de fechar */
+  position: relative;
 }
 
 .closeButton {
@@ -26,13 +25,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #888;
+  /* CORRIGIDO: Usa cor de texto primária no modo claro, e cor mais clara no escuro */
+  color: var(--text-primary);
   font-size: 2rem;
   transition: all 0.2s ease;
   z-index: 10;
 }
 .closeButton:hover {
-  color: #fff;
+  /* CORRIGIDO: Cor de hover no tema */
+  color: var(--theme-accent); 
   transform: rotate(90deg);
 }
 
@@ -41,14 +42,15 @@
   margin-bottom: 3rem;
 }
 .header h2 {
-  color: #FFD700;
+  color: var(--theme-accent); /* CORRIGIDO: Usa cor de destaque */
   font-size: 2.2rem;
   margin-bottom: 1rem;
 }
 .header p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #c0c0c0;
+  color: var(--text-primary); /* CORRIGIDO: Usa cor de texto primária */
+  opacity: 0.8;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -63,7 +65,8 @@
 .choiceCard {
   flex: 1;
   padding: 2.5rem;
-  border: 1px solid #444;
+  /* CORRIGIDO: Usa variáveis de tema */
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -71,18 +74,20 @@
   flex-direction: column;
 }
 .choiceCard:hover {
-  border-color: #FFD700;
+  border-color: var(--theme-accent);
   transform: translateY(-5px);
-  background-color: #2f2f2f;
+  /* Usamos background primário para contraste no hover */
+  background-color: var(--background-primary); 
 }
 .choiceCard h3 {
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: var(--text-primary); /* CORRIGIDO */
   font-size: 1.25rem;
 }
 .choiceCard p {
   font-size: 1rem;
-  color: #b0b0b0;
+  color: var(--text-primary); /* CORRIGIDO */
+  opacity: 0.6;
   line-height: 1.6;
   flex-grow: 1;
 }
@@ -95,7 +100,7 @@
 }
 .userTypeSelector {
   display: flex;
-  border: 1px solid #444;
+  border: 1px solid var(--border-color); /* CORRIGIDO */
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
@@ -104,17 +109,20 @@
 .userTypeSelector button {
   flex: 1;
   padding: 14px;
-  background-color: #1f1f1f;
+  /* CORRIGIDO: Usa background primário para contraste */
+  background-color: var(--background-primary); 
   border: none;
-  color: #b0b0b0;
+  color: var(--text-primary); /* CORRIGIDO */
+  opacity: 0.7;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 .userTypeSelector button.active {
-  background-color: #FFD700;
-  color: #1a1a1a;
+  background-color: var(--theme-accent);
+  /* Força cor escura para texto no botão de destaque (mesmo no modo claro) */
+  color: #1a1a1a; 
   font-weight: bold;
 }
 .dualInputContainer {
@@ -142,13 +150,14 @@
   display: block;
   text-align: center;
   margin-top: 1.5rem;
-  color: #b0b0b0;
+  color: var(--text-primary); /* CORRIGIDO */
+  opacity: 0.8;
   cursor: pointer;
   text-decoration: none;
   font-size: 0.9rem;
 }
 .backLink:hover {
-  color: #ffffff;
+  color: var(--theme-accent); /* CORRIGIDO */
   text-decoration: underline;
 }
 
@@ -168,12 +177,13 @@
   text-align: center;
   margin-top: 2.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #3a3a3a;
+  border-top: 1px solid var(--border-color); /* CORRIGIDO */
   font-size: 0.9rem;
-  color: #aaa;
+  color: var(--text-primary); /* CORRIGIDO */
+  opacity: 0.7;
 }
 .supportFooter a {
-  color: #FFD700;
+  color: var(--theme-accent); /* CORRIGIDO */
   font-weight: 500;
   text-decoration: none;
 }
