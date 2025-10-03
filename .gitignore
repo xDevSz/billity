@@ -1,0 +1,10 @@
+# Ignora a pasta de dependências do Node.js
+node_modules/
+
+# Ignora arquivos de ambiente local
+.env
+
+# Ignora arquivos do sistema operacional fora do projeto
+# (Isso deve resolver o problema de permissão)
+/c/users/**
+/Users/**
